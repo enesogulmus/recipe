@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "756492336099",
+    "firebase_url": "https://deneme-350fb-default-rtdb.firebaseio.com",
+    "project_id": "deneme-350fb",
+    "storage_bucket": "deneme-350fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:756492336099:android:3f6a4b76358e8257defed6",
+        "android_client_info": {
+          "package_name": "com.example.recipe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "756492336099-5uhhkpc5hj9smmtpo8653o0lrlfqoobj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.recipe",
+            "certificate_hash": "84a1c42a6c8368369a6f651d972df55893a9ad5a"
+          }
+        },
+        {
+          "client_id": "756492336099-p85u3huv7epti158e73ods5d4m5vf9vl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBy4l6AYVCFlVYRGtLv1-9IoX4_Ie2Eukg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "756492336099-p85u3huv7epti158e73ods5d4m5vf9vl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
