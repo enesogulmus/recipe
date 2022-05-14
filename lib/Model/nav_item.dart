@@ -31,7 +31,7 @@ class NavItems extends ChangeNotifier {
 
   List<NavItem> items = [
     NavItem(1, "assets/icons/home.svg",  destination: HomeView()),
-    NavItem(2,"assets/icons/list.svg", destination: RecipeListView(null,null,null,null)),
+    NavItem(2,"assets/icons/list.svg", destination: RecipeListView("null","null",null,9999)),
     NavItem(3,"assets/icons/camera.svg"),
     NavItem(4,"assets/icons/chef_nav.svg"),
     NavItem(5,"assets/icons/user.svg", destination: ProfileView()),

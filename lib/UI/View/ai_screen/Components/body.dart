@@ -33,9 +33,9 @@ class SplashScreenState extends State<SplashScreen> with TickerProviderStateMixi
 
   int curIndex = 0;
   double overall = 2.0;
-  String overallStatus = "Normal";
-  String usingTimes = 'No';
-  int? usingTimes2;
+  String overallStatus = "null";
+  String usingTimes = 'null';
+  int usingTimes2= 9999;
 
 
   List<SecondQuestion> usingCollection = [

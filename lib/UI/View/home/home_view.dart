@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:recipe/Model/bottom_nav_bar.dart';
+import 'package:recipe/Model/navigation_drawer.dart';
 import 'package:recipe/UI/View/home/Components/body.dart';
 import 'package:recipe/constants.dart';
 import 'package:recipe/size_config.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
+      drawer: NavigationDrawer(),
       appBar: buildAppBar(),
       body: Body(),
       // We are not able to BottomNavigationBar because the icon parameter dont except SVG
@@ -17,12 +24,20 @@ class HomeView extends StatelessWidget {
       bottomNavigationBar: BottomNavBar(),
     );
   }
+
   AppBar buildAppBar() {
     return AppBar(
       backgroundColor: kBackGroundColor,
-      leading: IconButton(
-        icon: SvgPicture.asset("assets/icons/menu.svg"),
-        onPressed: () {},
+      leading: Builder(
+        builder: (BuildContext context){
+          return IconButton(
+            onPressed: (){
+              Scaffold.of(context).openDrawer();
+            },
+            icon: SvgPicture.asset("assets/icons/menu.svg"),
+            tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+          );
+        },
       ),
       // On Android by default its false
       centerTitle: true,
@@ -38,5 +53,4 @@ class HomeView extends StatelessWidget {
         )
       ],
     );
-  }
-}
+  }}

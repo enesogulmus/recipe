@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe/Model/nav_item.dart';
 import 'package:recipe/UI/View/ai_screen/ai_view.dart';
+import 'package:recipe/UI/View/home/home_view.dart';
+import 'package:recipe/UI/View/sign_in/sign_in_view.dart';
 
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
           appBarTheme: AppBarTheme(color: Colors.white, elevation: 0),
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: aiView(),
+        home: SignInView(),
       ),
     );
   }
