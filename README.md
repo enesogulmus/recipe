@@ -1,2 +1,2 @@
-# myRepository
- Merhabalar, ilk flutter/dart projem olduğundan isimler ve klasörleme ile ilgili sorunlar yaşadığımı belirtmek isterim.
+# recipeApp
+Merhabalar, bu proje benim kayıtlı olduğumu üniversite bitirme projemdir. Aynı zamanda ilk Flutter/Dart deneyimimdir.
