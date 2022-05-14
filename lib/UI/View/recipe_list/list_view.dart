@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:recipe/Core/SERVICES/data.dart';
 import 'package:recipe/Model/bottom_nav_bar.dart';
+import 'package:recipe/Model/navigation_drawer.dart';
 import 'package:recipe/Model/shared.dart';
 import 'package:recipe/UI/View/recipe_detail/detail_view.dart';
 import 'package:recipe/constants.dart';
@@ -26,6 +27,7 @@ class _RecipeListViewState extends State<RecipeListView> {
     return Scaffold(
       backgroundColor: Colors.grey[50],
       appBar: buildAppBar(),
+      drawer: const NavigationDrawer(),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Column(
@@ -79,7 +81,7 @@ class _RecipeListViewState extends State<RecipeListView> {
     if(widget.time != null) {
       for (var i = 0; i < getRecipes().length; i++) {
         if (widget.nutritionPrefer == getRecipes()[i].nutrition || widget.anyDiet == "no") {
-          if (widget.nutritionPrefer == "Vegetable" || getRecipes()[i].calories > 245) {
+          if (widget.nutritionPrefer == "Vegetable" && getRecipes()[i].calories > 245) {
             if (getRecipes()[i].time <= widget.time!) {
               list.add(buildRecipe(getRecipes()[i], i));
             }
@@ -90,7 +92,7 @@ class _RecipeListViewState extends State<RecipeListView> {
     if(widget.time != null) {
       for (var i = 0; i < getRecipes().length; i++) {
         if (widget.nutritionPrefer == getRecipes()[i].nutrition || widget.anyDiet == "no") {
-          if (widget.nutritionPrefer == "Normal" || getRecipes()[i].calories > 287) {
+          if (widget.nutritionPrefer == "Normal" && getRecipes()[i].calories > 287) {
             if (getRecipes()[i].time <= widget.time!) {
               list.add(buildRecipe(getRecipes()[i], i));
             }
@@ -100,8 +102,8 @@ class _RecipeListViewState extends State<RecipeListView> {
     }
     if(widget.time != null) {
       for (var i = 0; i < getRecipes().length; i++) {
-        if (widget.nutritionPrefer == getRecipes()[i].nutrition || widget.anyDiet == "no") {
-          if (widget.nutritionPrefer == "Vegan" || getRecipes()[i].calories > 319) {
+        if (widget.nutritionPrefer == getRecipes()[i].nutrition && widget.anyDiet == "no") {
+          if (widget.nutritionPrefer == "Vegan" && getRecipes()[i].calories > 319) {
             if (getRecipes()[i].time <= widget.time!) {
               list.add(buildRecipe(getRecipes()[i], i));
             }
@@ -111,8 +113,8 @@ class _RecipeListViewState extends State<RecipeListView> {
     }
     if(widget.time != null) {
       for (var i = 0; i < getRecipes().length; i++) {
-        if (widget.nutritionPrefer == getRecipes()[i].nutrition || widget.anyDiet == "yes") {
-          if (widget.nutritionPrefer == "Vegetable" || getRecipes()[i].calories < 245) {
+        if (widget.nutritionPrefer == getRecipes()[i].nutrition && widget.anyDiet == "yes") {
+          if (widget.nutritionPrefer == "Vegetable" && getRecipes()[i].calories < 245) {
             if (getRecipes()[i].time <= widget.time!) {
               list.add(buildRecipe(getRecipes()[i], i));
             }
@@ -122,8 +124,8 @@ class _RecipeListViewState extends State<RecipeListView> {
     }
     if(widget.time != null) {
       for (var i = 0; i < getRecipes().length; i++) {
-        if (widget.nutritionPrefer == getRecipes()[i].nutrition || widget.anyDiet == "yes") {
-          if (widget.nutritionPrefer == "Normal" || getRecipes()[i].calories < 287) {
+        if (widget.nutritionPrefer == getRecipes()[i].nutrition && widget.anyDiet == "yes") {
+          if (widget.nutritionPrefer == "Normal" && getRecipes()[i].calories < 287) {
             if (getRecipes()[i].time <= widget.time!) {
               list.add(buildRecipe(getRecipes()[i], i));
             }
@@ -133,8 +135,8 @@ class _RecipeListViewState extends State<RecipeListView> {
     }
     if(widget.time != null) {
       for (var i = 0; i < getRecipes().length; i++) {
-        if (widget.nutritionPrefer == getRecipes()[i].nutrition || widget.anyDiet == "no") {
-          if (widget.nutritionPrefer == "Vegan" || getRecipes()[i].calories < 319) {
+        if (widget.nutritionPrefer == getRecipes()[i].nutrition && widget.anyDiet == "yes") {
+          if (widget.nutritionPrefer == "Vegan" && getRecipes()[i].calories < 319) {
             if (getRecipes()[i].time <= widget.time!) {
               list.add(buildRecipe(getRecipes()[i], i));
             }
@@ -283,7 +285,9 @@ class _RecipeListViewState extends State<RecipeListView> {
       backgroundColor: kBackGroundColor,
       leading: IconButton(
         icon: SvgPicture.asset("assets/icons/menu.svg"),
-        onPressed: () {},
+        onPressed: () {
+          Scaffold.of(context).openDrawer();
+        },
       ),
       // On Android by default its false
       centerTitle: true,
