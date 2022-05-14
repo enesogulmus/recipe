@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:recipe/UI/View/home/home_view.dart';
+import 'package:recipe/UI/View/ai_screen/ai_view.dart';
 import 'package:recipe/UI/View/sign_up/sign_up_view.dart';
 import 'package:recipe/constants.dart';
 
@@ -166,7 +166,7 @@ class _SignInViewState extends State<SignInView> {
             msg: kLoginSuccess
         ),
         Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (context) => HomeView())
+            builder: (context) => aiView())
         ),
       }
       ).catchError((e){

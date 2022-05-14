@@ -33,9 +33,9 @@ class SplashScreenState extends State<SplashScreen> with TickerProviderStateMixi
 
   int curIndex = 0;
   double overall = 2.0;
-  String overallStatus = "null";
+  String overallStatus = "Normal";
   String usingTimes = 'null';
-  int usingTimes2= 9999;
+  int? usingTimes2;
 
 
   List<SecondQuestion> usingCollection = [
@@ -185,7 +185,7 @@ class SplashScreenState extends State<SplashScreen> with TickerProviderStateMixi
                       Navigator.of(context).push(
                           MaterialPageRoute(
                           builder:
-                          (BuildContext context) => RecipeListView(overallStatus, usingTimes, thirdQuestionList, usingTimes2)));
+                          (BuildContext context) => RecipeListView(overallStatus, usingTimes, thirdQuestionList, usingTimes2!)));
                     }
                   });
                 },

@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:recipe/Core/SERVICES/Users.dart';
-import 'package:recipe/UI/View/home/home_view.dart';
+import 'package:recipe/UI/View/ai_screen/ai_view.dart';
 import 'package:recipe/constants.dart';
 
 class SignUpView extends StatefulWidget {
@@ -317,7 +317,7 @@ class _SignUpViewState extends State<SignUpView> {
 
     await firebaseFirestore.collection('users').doc(user.uid).set(users.toMap());
     Fluttertoast.showToast(msg: 'Account created successfully');
-    Navigator.pushAndRemoveUntil((context), MaterialPageRoute(builder: (context) => HomeView()), (route) => false);
+    Navigator.pushAndRemoveUntil((context), MaterialPageRoute(builder: (context) => aiView()), (route) => false);
 
   }
 /*  DropdownMenuItem<String> buildMenuItem(String item) => DropdownMenuItem(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipe/UI/View/ai_screen/ai_view.dart';
 import 'package:recipe/UI/View/home/home_view.dart';
 import 'package:recipe/UI/View/profile/profile_view.dart';
 import 'package:recipe/UI/View/recipe_list/list_view.dart';
@@ -32,7 +33,7 @@ class NavItems extends ChangeNotifier {
   List<NavItem> items = [
     NavItem(1, "assets/icons/home.svg",  destination: HomeView()),
     NavItem(2,"assets/icons/list.svg", destination: RecipeListView("null","null",null,9999)),
-    NavItem(3,"assets/icons/camera.svg"),
+    NavItem(3,"assets/icons/artificial.svg", destination: aiView()),
     NavItem(4,"assets/icons/chef_nav.svg"),
     NavItem(5,"assets/icons/user.svg", destination: ProfileView()),
   ];
