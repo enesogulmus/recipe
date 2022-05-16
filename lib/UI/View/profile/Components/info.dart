@@ -22,8 +22,7 @@ class _InfoState extends State<Info> {
     FirebaseFirestore.instance.collection('users').doc(user!.uid).get().then((value){
       this.loggedInUser = Users.fromMap(value.data());
       setState(() {});
-    }
-    );
+    });
   }
   @override
   Widget build(BuildContext context) {

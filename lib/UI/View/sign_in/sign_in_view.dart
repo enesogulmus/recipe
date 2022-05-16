@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:recipe/UI/View/ai_screen/ai_view.dart';
+import 'package:recipe/UI/View/reset_password/reset_password_view.dart';
 import 'package:recipe/UI/View/sign_up/sign_up_view.dart';
 import 'package:recipe/constants.dart';
 
@@ -52,8 +53,6 @@ class _SignInViewState extends State<SignInView> {
       )
 
     );
-
-
     // password field
     final  passwordField = TextFormField(
       autofocus: false,
@@ -82,7 +81,6 @@ class _SignInViewState extends State<SignInView> {
         )
 
     );
-
     final loginButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
@@ -146,9 +144,32 @@ class _SignInViewState extends State<SignInView> {
                               fontSize: kFontSize,
                             ),
                           ),
-                        )
+                        ),
+                      ],
+                    ),
+                    kBottomMargin,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        const Text(
+                            "or "
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const ResetPassword()));
+                          },
+                          child: const Text(
+                            "Forgot Password?",
+                            style: TextStyle(
+                              color: kPrimaryColor,
+                              fontWeight: FontWeight.w900,
+                              fontSize: kFontSize,
+                            ),
+                          ),
+                        ),
                       ],
                     )
+
                   ],
                 ),
               ),

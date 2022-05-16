@@ -9,10 +9,10 @@ import 'package:recipe/constants.dart';
 import 'package:recipe/size_config.dart';
 
 class RecipeListView extends StatefulWidget {
-  String nutritionPrefer;
-  String anyDiet;
-  List? noIngredients;
-  int time;
+  final String nutritionPrefer;
+  final String anyDiet;
+  final List? noIngredients;
+  final int time;
   RecipeListView(this.nutritionPrefer, this.anyDiet, this.noIngredients, this.time);
 
   @override
@@ -20,7 +20,6 @@ class RecipeListView extends StatefulWidget {
 }
 
 class _RecipeListViewState extends State<RecipeListView> {
-
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +60,6 @@ class _RecipeListViewState extends State<RecipeListView> {
                 ],
               ),
             ),
-
             Container(
               height: 190,
               child: PageView(
@@ -75,7 +73,6 @@ class _RecipeListViewState extends State<RecipeListView> {
       bottomNavigationBar: BottomNavBar(),
     );
   }
-
   List<Widget> buildRecipes() {
     List<Widget> list = [];
     if(widget.nutritionPrefer != "null") {
@@ -178,8 +175,10 @@ class _RecipeListViewState extends State<RecipeListView> {
 
                 buildCalories(recipe.calories.toString() + " Kcal"),
 
-                Icon(
-                  Icons.favorite_border,
+                IconButton(
+                  icon: Icon(Icons.favorite_border),
+                  onPressed: () {
+                  },
                 )
 
               ],

@@ -4,9 +4,7 @@ import 'package:recipe/Model/shared.dart';
 import 'package:recipe/constants.dart';
 
 class Detail extends StatelessWidget {
-
   final Recipe recipe;
-
   Detail({required this.recipe});
 
   @override
