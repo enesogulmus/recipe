@@ -1,12 +1,20 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:recipe/Core/SERVICES/data.dart';
 import 'package:recipe/Model/shared.dart';
+import 'package:recipe/UI/View/iframe_video/iframe_youtube.dart';
 import 'package:recipe/constants.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
-class Detail extends StatelessWidget {
+class Detail extends StatefulWidget {
   final Recipe recipe;
   Detail({required this.recipe});
 
+  @override
+  State<Detail> createState() => _DetailState();
+}
+
+class _DetailState extends State<Detail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,10 +35,6 @@ class Detail extends StatelessWidget {
         actions: [
           Padding(
             padding: EdgeInsets.only(right: 16),
-            child: Icon(
-              Icons.favorite_border,
-              color: Colors.black,
-            ),
           ),
         ],
       ),
@@ -45,10 +49,10 @@ class Detail extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  
-                  buildTextTitleVariation1(recipe.title),
 
-                  buildTextSubTitleVariation1(recipe.description),
+                  buildTextTitleVariation1(widget.recipe.title),
+
+                  buildTextSubTitleVariation1(widget.recipe.description),
 
                 ],
               ),
@@ -75,19 +79,19 @@ class Detail extends StatelessWidget {
                         height: 16,
                       ),
 
-                      buildNutrition(recipe.calories, "Calories", "Kcal"),
+                      buildNutrition(widget.recipe.calories, "Calories", "Kcal"),
 
                       SizedBox(
                         height: 16,
                       ),
 
-                      buildNutrition(recipe.carbo, "Carbo", "g"),
+                      buildNutrition(widget.recipe.carbo, "Carbo", "g"),
 
                       SizedBox(
                         height: 16,
                       ),
 
-                      buildNutrition(recipe.protein, "Protein", "g"),
+                      buildNutrition(widget.recipe.protein, "Protein", "g"),
 
                     ],
                   ),
@@ -95,13 +99,13 @@ class Detail extends StatelessWidget {
                   Positioned(
                     right: -80,
                     child: Hero(
-                      tag: recipe.image,
+                      tag: widget.recipe.image,
                       child: Container(
                         height: 310,
                         width: 310,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage(recipe.image),
+                            image: AssetImage(widget.recipe.image),
                             fit: BoxFit.fitHeight,
                           ),
                         ),
@@ -118,7 +122,7 @@ class Detail extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  
+
                   buildTextTitleVariation2('Ingredients', false),
 
                   buildTextSubTitleVariation1("2 cups pecans, divided"),
@@ -150,7 +154,9 @@ class Detail extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {}, 
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const IframeYoutubePlayer('https://youtu.be/ASA7yTRC9NY')));
+        },
         backgroundColor: kPrimaryColor,
         icon: Icon(
           Icons.play_circle_fill,
@@ -237,4 +243,19 @@ class Detail extends StatelessWidget {
     );
   }
 
+/*
+  Widget buildYoutubeIframe(BuildContext context){
+
+    return SizedBox(
+      height: kIsWeb ? screenSize.height / 1.13 : screenSize.height,
+      width: screenSize.width,
+      child: YoutubePlayerControllerProvider(
+        controller: _controller,
+        child: YoutubePlayerIFrame(
+          controller: _controller,
+        ),
+      ),
+    );
+  }
+*/
 }

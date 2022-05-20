@@ -62,7 +62,7 @@ class _CategoriesState extends State<Categories> {
             Navigator.of(context).push(
                 MaterialPageRoute(
                     builder:
-                        (BuildContext context) => RecipeListView(categories[selectedIndex], "All", null, 9999)));
+                        (BuildContext context) => RecipeListView(categories[index], "All", null, 9999)));
           },
         ),
       ),

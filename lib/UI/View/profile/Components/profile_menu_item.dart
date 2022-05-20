@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:recipe/UI/View/favourites/favourites_list.dart';
 import 'package:recipe/constants.dart';
 import 'package:recipe/size_config.dart';
 
@@ -19,20 +20,31 @@ class ProfileMenuItem extends StatelessWidget {
         child: SafeArea(
           child: Row(
             children: <Widget>[
-              SvgPicture.asset(iconSrc),
+              IconButton(onPressed: (){
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => Favourites()));
+              }, icon:SvgPicture.asset(iconSrc)),
               SizedBox(width: defaultSize * 2),
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: defaultSize * 1.6, //16
-                  color: kTextLightColor,
+              TextButton(
+                onPressed: () { Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => Favourites())); },
+                child: Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: defaultSize * 1.6, //16
+                    color: kTextLightColor,
+                  ),
                 ),
               ),
               const Spacer(),
-              Icon(
-                Icons.arrow_forward_ios,
-                size: defaultSize * 1.6,
-                color: kTextLightColor,
+              IconButton(
+                icon: Icon(
+                  Icons.arrow_forward_ios,
+                  size: defaultSize * 1.6,
+                  color: kTextLightColor,
+                ),
+                onPressed: () { Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => Favourites())); },
               )
             ],
           ),

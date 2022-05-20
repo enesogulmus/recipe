@@ -4,6 +4,7 @@ import 'package:recipe/Core/SERVICES/data.dart';
 import 'package:recipe/Model/bottom_nav_bar.dart';
 import 'package:recipe/Model/navigation_drawer.dart';
 import 'package:recipe/Model/shared.dart';
+import 'package:recipe/UI/View/favourites/favourites_list.dart';
 import 'package:recipe/UI/View/recipe_detail/detail_view.dart';
 import 'package:recipe/constants.dart';
 import 'package:recipe/size_config.dart';
@@ -208,23 +209,23 @@ class _RecipeListViewState extends State<RecipeListView> {
             SizedBox(
               height: 8,
             ),
-
             buildRecipeTitle(recipe.title),
-
             buildTextSubTitleVariation2(recipe.description),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-
-                buildCalories(recipe.calories.toString() + " Kcal"),
-
+                buildCalories(recipe.calories.toString() + " Kcal")
+                /*
                 IconButton(
                   icon: Icon(Icons.favorite_border),
                   onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Favourites(favourites: recipe)),
+                    );
                   },
                 )
-
+                */
               ],
             ),
 
@@ -281,16 +282,9 @@ class _RecipeListViewState extends State<RecipeListView> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-
-                      buildCalories(recipe.calories.toString() + " Kcal"),
-
-                      Icon(
-                        Icons.favorite_border,
-                      )
-
+                      buildCalories(recipe.calories.toString() + " Kcal")
                     ],
                   ),
-
                 ],
               ),
             ),
@@ -320,10 +314,6 @@ class _RecipeListViewState extends State<RecipeListView> {
       centerTitle: true,
       title: Image.asset("assets/images/logo.png"),
       actions: <Widget>[
-        IconButton(
-          icon: SvgPicture.asset("assets/icons/search.svg"),
-          onPressed: () {},
-        ),
         SizedBox(
           // It means 5 because by out defaultSize = 10
           width: SizeConfig.defaultSize * 0.5,

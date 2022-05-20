@@ -7,8 +7,8 @@ import 'package:recipe/constants.dart';
 import 'package:recipe/size_config.dart';
 
 class Favourites extends StatefulWidget {
-  final FavouriteOf? favourites;
-  Favourites({this.favourites});
+  /*final FavouriteOf favourites;
+  Favourites({required this.favourites});*/
 
   @override
   State<Favourites> createState() => _FavouritesState();
@@ -21,33 +21,13 @@ class _FavouritesState extends State<Favourites> {
       backgroundColor: Colors.grey[50],
       drawer: NavigationDrawer(),
       appBar: buildAppBar(),
-      body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        child: Column(
+      body: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-              height: 24,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Row(
-                children: [
-                  buildTextTitleVariation2('Favourite', false),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  buildTextTitleVariation2('Food', true),
-                ],
-              ),
-            ),
-
-            Container(
-              height: 190,
-              child: PageView(
-                physics: BouncingScrollPhysics(),
-                children: buildFavourites(),
-              ),
-            ),
+            buildTextTitleVariation2('Coming', false),
+            SizedBox(width: 8),
+            buildTextTitleVariation2('Soon', true),
           ],
         ),
       ),
@@ -55,18 +35,23 @@ class _FavouritesState extends State<Favourites> {
     );
   }
 
-  late List favouriteOfList;
+  /*late List favouriteOfList;*/
 
+/*
   void setFavouriteOf(FavouriteOf favourite){
     favouriteOfList.add(
         FavouriteOf(
             favourite.title, favourite.description, favourite.image, favourite.nutrition, favourite.time, favourite.calories, favourite.carbo, favourite.protein));
   }
+*/
 
+/*
   List<FavouriteOf> getFavouriteOf(){
     return <FavouriteOf>[];
   }
+*/
 
+/*
   List<Widget> buildFavourites() {
     if (widget != null) {
       setFavouriteOf(widget.favourites!);
@@ -78,7 +63,9 @@ class _FavouritesState extends State<Favourites> {
     }
     return list;
   }
+*/
 
+/*
   Widget buildFavourite(FavouriteOf favourites) {
     return Container(
       margin: EdgeInsets.all(16),
@@ -137,6 +124,7 @@ class _FavouritesState extends State<Favourites> {
       ),
     );
   }
+*/
 
   AppBar buildAppBar() {
     return AppBar(
@@ -170,16 +158,17 @@ class _FavouritesState extends State<Favourites> {
 
 }
 
-class FavouriteOf {
-  String title;
-  String description;
-  String image;
-  String nutrition;
-  int time;
-  int calories;
-  int carbo;
-  int protein;
+/*
+  class FavouriteOf {
+    String title;
+    String description;
+    String image;
+    String nutrition;
+    int time;
+    int calories;
+    int carbo;
+    int protein;
 
-  FavouriteOf(this.title, this.description, this.image,this.nutrition,this.time, this.calories, this.carbo, this.protein);
-}
-
+    FavouriteOf(this.title, this.description, this.image,this.nutrition,this.time, this.calories, this.carbo, this.protein);
+  }
+*/
