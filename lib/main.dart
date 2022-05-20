@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           appBarTheme: AppBarTheme(color: Colors.white, elevation: 0),
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: SignInView(),
+        home: HomeView(),
       ),
     );
   }

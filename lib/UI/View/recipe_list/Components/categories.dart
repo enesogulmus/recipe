@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipe/UI/View/recipe_list/list_view.dart';
 import 'package:recipe/constants.dart';
 import 'package:recipe/size_config.dart';
 
@@ -48,12 +49,21 @@ class _CategoriesState extends State<Categories> {
             borderRadius: BorderRadius.circular(
               SizeConfig.defaultSize * 1.6, // 16
             )),
-        child: Text(
-          categories[index],
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: selectedIndex == index ? kPrimaryColor : const Color(0xFFC2C2B5),
+        child: TextButton(
+          child: Text(
+            categories[index],
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: selectedIndex == index ? kPrimaryColor : const Color(0xFFC2C2B5),
+            ),
           ),
+          onPressed: (){
+            Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder:
+                        (BuildContext context) => RecipeListView(categories[selectedIndex], "All", null, 9999)));
+          },
         ),
       ),
     );

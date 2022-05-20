@@ -5,7 +5,6 @@ const kTextColor = Color(0xFF202E2E);
 const kTextLightColor = Color(0xFF7286A5);
 const kBackGroundColor = Color(0xFFFFFFFF);
 
-
 const kEmailIcon = Icon(Icons.mail_outlined);
 const kPasswordIcon = Icon(Icons.vpn_key_outlined);
 const kUserIcon = Icon(Icons.account_circle_outlined);
@@ -13,8 +12,6 @@ const kBackIcon = Icon(Icons.arrow_back_outlined);
 
 const kMaleProfile = "assets/images/chef_3.png";
 const kFemaleProfile = "assets/images/chef_1.png";
-
-
 
 const kTextPadding = EdgeInsets.fromLTRB(20, 15, 20, 15);
 

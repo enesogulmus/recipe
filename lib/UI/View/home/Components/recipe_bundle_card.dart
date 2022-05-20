@@ -24,7 +24,7 @@ class RecipeBundleCard extends StatelessWidget {
             onPressed: ( ) {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => RecipeListView("null","null",null,9999)),
+                MaterialPageRoute(builder: (context) => RecipeListView("All","All",null,9999)),
               );
             },
             child: Row(

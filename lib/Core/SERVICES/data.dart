@@ -1,5 +1,4 @@
 class Recipe {
-
   String title;
   String description;
   String image;
@@ -8,13 +7,8 @@ class Recipe {
   int calories;
   int carbo;
   int protein;
-
-
-
   Recipe(this.title, this.description, this.image,this.nutrition,this.time, this.calories, this.carbo, this.protein);
-
 }
-
 List<Recipe> getRecipes(){
   return <Recipe>[
     Recipe("Chicken Fried Rice", "So irresistibly delicious", "assets/images/chicken_fried_rice.png","Vegetable", 12, 212, 35, 6),

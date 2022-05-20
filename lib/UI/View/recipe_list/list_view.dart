@@ -75,49 +75,93 @@ class _RecipeListViewState extends State<RecipeListView> {
   }
   List<Widget> buildRecipes() {
     List<Widget> list = [];
-    if(widget.nutritionPrefer != "null") {
-      for (var i = 0; i < getRecipes().length; i++) {
-        if (widget.nutritionPrefer == getRecipes()[i].nutrition ||
-            widget.anyDiet == "no") {
-          if (widget.nutritionPrefer == "Vegetable" &&
-              getRecipes()[i].calories > 245) {
-            if (getRecipes()[i].time <= widget.time) {
-              list.add(buildRecipe(getRecipes()[i], i));
-            }
-          } else if (widget.nutritionPrefer == "Normal" &&
-              getRecipes()[i].calories > 287) {
-            if (getRecipes()[i].time <= widget.time) {
-              list.add(buildRecipe(getRecipes()[i], i));
-            }
-          } else if (widget.nutritionPrefer == "Vegan" &&
-              getRecipes()[i].calories > 319) {
-            if (getRecipes()[i].time <= widget.time) {
-              list.add(buildRecipe(getRecipes()[i], i));
-            }
-          }
-        } else if (widget.nutritionPrefer == getRecipes()[i].nutrition &&
-            widget.anyDiet == "yes") {
-          if (widget.nutritionPrefer == "Vegetable" &&
-              getRecipes()[i].calories < 245) {
-            if (getRecipes()[i].time <= widget.time) {
-              list.add(buildRecipe(getRecipes()[i], i));
-            }
-          } else if (widget.nutritionPrefer == "Normal" &&
-              getRecipes()[i].calories < 287) {
-            if (getRecipes()[i].time <= widget.time) {
-              list.add(buildRecipe(getRecipes()[i], i));
-            }
-          } else if (widget.nutritionPrefer == "Vegan" &&
-              getRecipes()[i].calories < 319) {
-            if (getRecipes()[i].time <= widget.time) {
-              list.add(buildRecipe(getRecipes()[i], i));
-            }
+
+    if(widget.nutritionPrefer == "Vegetable"){
+      if(widget.anyDiet == "All"){
+        for(var i=0;i<getRecipes().length;i++){
+          if(getRecipes()[i].nutrition == widget.nutritionPrefer){
+            list.add(buildRecipe(getRecipes()[i], i));
           }
         }
       }
-    } else{
-      for (var i = 0; i < getRecipes().length; i++){
-        list.add(buildRecipe(getRecipes()[i], i));
+      else if(widget.anyDiet == "no"){
+        for(var i=0;i<getRecipes().length;i++){
+          if(getRecipes()[i].nutrition == widget.nutritionPrefer &&
+              getRecipes()[i].calories > 245 &&
+              getRecipes()[i].time <= widget.time){
+            list.add(buildRecipe(getRecipes()[i], i));
+          }
+        }
+      }
+      else if(widget.anyDiet == "yes"){
+        for(var i=0;i<getRecipes().length;i++){
+          if(getRecipes()[i].nutrition == widget.nutritionPrefer &&
+              getRecipes()[i].calories < 245 &&
+              getRecipes()[i].time <= widget.time){
+            list.add(buildRecipe(getRecipes()[i], i));
+          }
+        }
+      }
+    }
+    else if(widget.nutritionPrefer == "Normal"){
+      if(widget.anyDiet == "All"){
+        for(var i=0;i<getRecipes().length;i++){
+          if(getRecipes()[i].nutrition == widget.nutritionPrefer){
+            list.add(buildRecipe(getRecipes()[i], i));
+          }
+        }
+      }
+      else if(widget.anyDiet == "no"){
+        for(var i=0;i<getRecipes().length;i++){
+          if(getRecipes()[i].nutrition == widget.nutritionPrefer &&
+              getRecipes()[i].calories > 287 &&
+              getRecipes()[i].time <= widget.time){
+            list.add(buildRecipe(getRecipes()[i], i));
+          }
+        }
+      }
+      else if(widget.anyDiet == "yes"){
+        for(var i=0;i<getRecipes().length;i++){
+          if(getRecipes()[i].nutrition == widget.nutritionPrefer &&
+              getRecipes()[i].calories < 287 &&
+              getRecipes()[i].time <= widget.time){
+            list.add(buildRecipe(getRecipes()[i], i));
+          }
+        }
+      }
+    }
+    else if(widget.nutritionPrefer == "Vegan"){
+      if(widget.anyDiet == "All"){
+        for(var i=0;i<getRecipes().length;i++){
+          if(getRecipes()[i].nutrition == widget.nutritionPrefer){
+            list.add(buildRecipe(getRecipes()[i], i));
+          }
+        }
+      }
+      else if(widget.anyDiet == "no"){
+        for(var i=0;i<getRecipes().length;i++){
+          if(getRecipes()[i].nutrition == widget.nutritionPrefer &&
+              getRecipes()[i].calories > 319 &&
+              getRecipes()[i].time <= widget.time){
+            list.add(buildRecipe(getRecipes()[i], i));
+          }
+        }
+      }
+      else if(widget.anyDiet == "yes"){
+        for(var i=0;i<getRecipes().length;i++){
+          if(getRecipes()[i].nutrition == widget.nutritionPrefer &&
+              getRecipes()[i].calories < 319 &&
+              getRecipes()[i].time <= widget.time){
+            list.add(buildRecipe(getRecipes()[i], i));
+          }
+        }
+      }
+    }
+    else{
+      if(widget.anyDiet == "All"){
+        for(var i=0;i<getRecipes().length;i++){
+          list.add(buildRecipe(getRecipes()[i], i));
+        }
       }
     }
     return list;

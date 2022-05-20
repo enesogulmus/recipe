@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipe/UI/View/recipe_list/list_view.dart';
 import 'package:recipe/constants.dart';
 import 'package:recipe/size_config.dart';
 
@@ -10,7 +11,7 @@ class Categories extends StatefulWidget {
   _CategoriesState createState() => _CategoriesState();
 }
 class _CategoriesState extends State<Categories> {
-  List<String> categories = ["All", "Indian", "Italian", "Mexican", "Chinese"];
+  List<String> categories = ["All", "Vegetable", "Normal", "Vegan"];
   // By default first one is selected
   int selectedIndex = 0;
   @override
@@ -18,7 +19,7 @@ class _CategoriesState extends State<Categories> {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: SizeConfig.defaultSize * 2),
       child: SizedBox(
-        height: SizeConfig.defaultSize * 3.5, // 35
+        height: SizeConfig.defaultSize * 5, // 35
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: categories.length,
@@ -48,12 +49,21 @@ class _CategoriesState extends State<Categories> {
             borderRadius: BorderRadius.circular(
               SizeConfig.defaultSize * 1.6, // 16
             )),
-        child: Text(
-          categories[index],
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: selectedIndex == index ? kPrimaryColor : const Color(0xFFC2C2B5),
+        child: TextButton(
+          child: Text(
+            categories[index],
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: selectedIndex == index ? kPrimaryColor : const Color(0xFFC2C2B5),
+            ),
           ),
+          onPressed: (){
+            Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder:
+                        (BuildContext context) => RecipeListView(categories[selectedIndex], "All", null, 9999)));
+          },
         ),
       ),
     );

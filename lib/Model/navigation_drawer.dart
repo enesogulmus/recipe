@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:recipe/UI/View/home/home_view.dart';
+import 'package:recipe/UI/View/recipe_list/list_view.dart';
 
 class NavigationDrawer extends StatelessWidget {
 
@@ -28,6 +31,21 @@ class NavigationDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.home_outlined),
             title: const Text('Home'),
+            onTap: (){
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeView()));
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.list),
+            title: const Text('Recipe List'),
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => RecipeListView("All","All",null,9999)));
+
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.workspaces_outline),
+            title: const Text('AI Helper'),
             onTap: (){},
           ),
           ListTile(
@@ -36,24 +54,14 @@ class NavigationDrawer extends StatelessWidget {
             onTap: (){},
           ),
           ListTile(
-            leading: const Icon(Icons.workspaces_outline),
-            title: const Text('Workflow'),
-            onTap: (){},
-          ),
-          ListTile(
-            leading: const Icon(Icons.update),
-            title: const Text('Updates'),
+            leading: const Icon(Icons.account_circle_outlined),
+            title: const Text('Profile'),
             onTap: (){},
           ),
           const Divider(color: Colors.black54),
           ListTile(
-            leading: const Icon(Icons.account_tree_outlined),
-            title: const Text('Plugins'),
-            onTap: (){},
-          ),
-          ListTile(
-            leading: const Icon(Icons.notifications_outlined),
-            title: const Text('Notifications'),
+            leading: const Icon(Icons.settings),
+            title: const Text('Settings'),
             onTap: (){},
           )
         ],
