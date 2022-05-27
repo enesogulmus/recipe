@@ -9,31 +9,27 @@ class ProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-      appBar: buildAppBar(),
+      appBar: AppBar(
+        backgroundColor: kPrimaryColor,
+        leading: SizedBox(),
+        // On Android it's false by default
+        centerTitle: true,
+        title: Text("Profile"),
+        actions: <Widget>[
+/*          TextButton.icon(
+            onPressed: () => FirebaseAuth.instance.signOut(),
+            icon: Icon(Icons.exit_to_app_outlined),
+            label: Text('Log Out',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: SizeConfig.defaultSize * 1.6, //16
+                  fontWeight: FontWeight.bold),
+            ),
+          )*/
+        ],
+      ),
       body: Body(),
       bottomNavigationBar: BottomNavBar(),
-    );
-  }
-  AppBar buildAppBar() {
-    return AppBar(
-      backgroundColor: kPrimaryColor,
-      leading: SizedBox(),
-      // On Android it's false by default
-      centerTitle: true,
-      title: Text("Profile"),
-      actions: <Widget>[
-        FlatButton(
-          onPressed: () {},
-          child: Text(
-            "Edit",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: SizeConfig.defaultSize * 1.6, //16
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

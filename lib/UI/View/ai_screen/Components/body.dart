@@ -382,12 +382,12 @@ class SplashScreenState extends State<SplashScreen> with TickerProviderStateMixi
               children: <Widget>[
                 Text('Question 3'),
                 Container(
-                    margin: EdgeInsets.only(top: 16.0),
+                    margin: EdgeInsets.only(top: 16.0, bottom: 16.0),
                     child: Text('Which of the following ingredients do you not have?')),
                 Expanded(
                   child: Center(
-                    child: Container(
-                      height: 467.0,
+                    child: SingleChildScrollView(
+                      /*height: 467.0,*/
                       child: Card(
                         child: Column(
                           children: List.generate(thirdQuestionList.length,

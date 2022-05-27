@@ -1,4 +1,4 @@
-  class Users {
+class Users {
     String? uid;
     String? email;
     String? firstName;
